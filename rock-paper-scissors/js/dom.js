@@ -7,7 +7,7 @@ class DOM {
     getWelcomeWindow(){
         return `
         <article id='menu_window'>
-            <header><img src='/img/logo.svg'></header>
+            <header><img src='img/logo.svg'></header>
             <footer>
                 <button id='start'>`+this.locale.getCurrentLanguage('start')+`</button>
                 <button id='start_webcam'>`+this.locale.getCurrentLanguage('start_webcam')+`</button>
