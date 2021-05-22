@@ -24,7 +24,8 @@ class WebcamHandler{
     }
 
     async init(){
-        this.pretrained = await tf.loadLayersModel('http://localhost:3000/js/tensorflow_model/model.json')
+        //this.pretrained = await tf.loadLayersModel('http://localhost:3000/js/tensorflow_model/model.json')
+        this.pretrained = await tf.loadLayersModel('https://raw.githubusercontent.com/visheshbhj/rock-paper-scissors/main/rock-paper-scissors/js/tensorflow_model/model.json')
         return this.pretrained;
     }
 
