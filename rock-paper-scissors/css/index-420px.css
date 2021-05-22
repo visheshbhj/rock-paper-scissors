@@ -1,0 +1,136 @@
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+    /* menu_window */
+    #menu_window{
+        display: flex;
+        flex-direction: column;
+    }
+
+    header{
+        height: 80vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    header > img {
+        width: 100vw;
+    }
+
+    footer{
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    footer > button,#stop_game,#prediction > button{
+        height: 3.2vh;
+        width: 40vh;
+    }
+
+    .avatar{
+        display: flex;
+        flex-direction: column;
+        border-style: solid;
+        padding: 1.6%;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+    }
+
+    .avatar > label{
+        font-size: 3.2vh;
+        padding-bottom: 1.6%;
+        padding-top: 1.6%;
+    }
+
+    .result_canvas{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -5;
+    }
+
+    /* start_window */
+    .choice_card{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 10vh;
+        width: 80vw;
+        border-style: solid;
+        color: var(--dark);
+        cursor: pointer;
+    }
+
+    .choice_card > img {
+        height: 8vh;
+    }
+
+    .choice_card > label{
+        font-size: 4vh;
+    }
+
+    #choice_footer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 20vh;
+    }
+
+    #choice_footer > label {
+        font-size: 2.4vh;
+    }
+
+    #scoreboard{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 2.4vh;
+        width: 100vw;
+    }
+
+    .scores{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* WebCam */
+    #cam_frame{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80vh;
+        justify-content: space-evenly;
+    }
+
+    video{
+        height: 40vh;
+    }
+
+    #prediction{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 36vh;
+    }
+
+    #loader{
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 8vh;
+        height: 8vh;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+}

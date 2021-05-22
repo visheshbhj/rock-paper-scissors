@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "C:\\Users\\Vishesh\\anaconda3\\envs\\deeplearning\\python.exe",
+    "python.languageServer": "Pylance",
+    "git.ignoreLimitWarning": true
+}
