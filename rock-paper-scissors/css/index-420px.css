@@ -114,6 +114,7 @@
 
     video{
         height: 40vh;
+        width: 100vw;
     }
 
     #prediction{

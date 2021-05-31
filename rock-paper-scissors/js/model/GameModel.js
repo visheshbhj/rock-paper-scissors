@@ -1,4 +1,4 @@
-class GameLogic{
+class GameModel{
     
     constructor(){
         this.human_score = 0;

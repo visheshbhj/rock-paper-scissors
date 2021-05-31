@@ -1,17 +1,25 @@
-var confetti = new Confetti()
-var store = new LocalStorage();
-var session = new SessionStorage();
-var gamelogic = new GameLogic();
+var session = new SessionStorage()
+var store = new LocalStorage()
 
-var locale = new Locale(store);
-var dom = new DOM(locale);
-var choice = new ChoiceHandler(dom,gamelogic,store,confetti,locale);
-var webcam = new WebcamHandler(gamelogic,locale,dom,choice);
-var welcome = new WelcomeHandler(dom,store,session,webcam,locale);
-var result = new ResultHandler(dom,gamelogic,store,confetti,locale,webcam);
+var localeModel = new LocaleModel(store,language);
+var gameModel = new GameModel();
+var dom = new DOM(localeModel);
+var confetti = new Confetti();
+var webcam = new Webcam()
+var tfModel = new TensorflowModel()
+
+var localeView = new LocaleView(localeModel);
+var choiceView = new ChoiceView(dom,session)
+var webcamView = new WebcamView(dom,session,localeModel,tfModel,webcam)
+var resultView = new ResultView(dom,session,gameModel,localeModel,confetti,webcam);
+
+var welcomeController = new WelcomeController(localeView,localeModel,choiceView,webcamView);
+var choiceController = new ChoiceController(resultView,gameModel);
+var resultController = new ResultController(resultView);
+var webcamController = new WebcamController(gameModel,webcamView,resultView);
 
 $(document).ready(()=>{
-    webcam.init().then(()=>{
+    tfModel.init().then(()=>{
         $('#window').append(dom.getWelcomeWindow())
         canvas = document.getElementById("background");
         canvas.width = window.innerWidth;
