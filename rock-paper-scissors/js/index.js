@@ -1,3 +1,4 @@
+/* Initialize All Classes */
 var session = new SessionStorage()
 var store = new LocalStorage()
 
@@ -18,6 +19,7 @@ var choiceController = new ChoiceController(resultView,gameModel);
 var resultController = new ResultController(resultView);
 var webcamController = new WebcamController(gameModel,webcamView,resultView);
 
+/* Draw the Page & Load the machine Learning Model */
 $(document).ready(()=>{
     tfModel.init().then(()=>{
         $('#window').append(dom.getWelcomeWindow())
@@ -26,5 +28,3 @@ $(document).ready(()=>{
         canvas.height = window.innerHeight;
     }) 
 });
-
-document.body.addEventListener('click',(event)=> console.log('Target -> '+event.target.id+', event -> '+event.target.src+', txt -> '+event.target.innerText));

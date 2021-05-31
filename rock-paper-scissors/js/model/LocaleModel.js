@@ -1,11 +1,17 @@
 class LocaleModel {
-    
+    /**
+     * When initialized it sets up default language.
+     * @param {*} language contains the language bindings in language.js
+     */
     constructor(store,language){
         this.store = store
         this.language = language
         this.getDefaultLanguage();
     }
-
+    /**
+     * Gets value of 'Default-Language' from local store, if not found then sets to English.
+     * @returns this.currentLocale which tells what current language is.
+     */
     getDefaultLanguage(){
         if(this.store.get('Default-Language')===undefined || this.store.get('Default-Language')===null){
             this.currentLocale = 'en';
@@ -15,8 +21,14 @@ class LocaleModel {
         return this.currentLocale
     }
 
+    /**
+     * A Helper method to get language binding of current locale stored in languages.
+     */
     getCurrentLanguage(val){return this.language[this.currentLocale][val]}
 
+    /**
+     * Change the Locale & set new locale into local storage.
+     */
     changeLocale(){
         switch (this.currentLocale) {
             case 'en':

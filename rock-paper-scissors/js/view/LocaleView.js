@@ -1,6 +1,5 @@
 class LocaleView {
     constructor(localeModel) {
-        //TODO -> Locale Model getDefault Lang
         this.localeModel = localeModel
         this.idsToLangKey = {
             'start':'start',
@@ -8,7 +7,9 @@ class LocaleView {
             'changeLanguage':'language'
         }
     }
-
+    /**
+     * Dynamically changes text of DOM. Called by WelcomeController on language change.
+     */
     changeTextOnDOM(){
         var keys = Object.keys(this.idsToLangKey)
         keys.forEach((value)=>{

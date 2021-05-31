@@ -1,5 +1,8 @@
 class WebcamView{
-    
+    /**
+     * WebcamView constructor
+     * @param {*} labels maps model parameters to labels
+     */
     constructor(dom,session,localeModel,tfModel,webcam){
         this.dom = dom
         this.session = session
@@ -8,7 +11,10 @@ class WebcamView{
         this.webcam = webcam;
         this.labels = {0:'rock',1:'paper',2:'scissors'};
     }
-
+    /**
+     * Start a game with webcam on, put 'webcam' into session storage as 'game-event-type'.To be used later after user clicks "Continue" in Result View.
+     * Scoreboard removed since game has not started.
+     */
     startWebcamGame(){
         this.session.put('game-event-type','webcam')
         $('#window').empty();
@@ -16,13 +22,24 @@ class WebcamView{
         $('#scoreboard').remove()
         this.webcam.setupCAM();
     }
-
+    /**
+     * Called when user Presses Predict or Predict again.
+     * Starts the HTML loader, then captures image from Camera & passes it into Predict function.
+     */
     startPrediction(){
         $('#prediction').empty();
         $('#prediction').append(dom.getLoader())
         this.camID = setInterval(() => this.webcam.getCamera().capture().then((img)=>this.predict(img)),1000);
     }
 
+    /**
+     * Predicts Users Gesture.
+     * Image taken is Normalized, then reshaped to 150,150 px.
+     * Next it is passed into the model which generates what the gesture was.
+     * clearInterval is used to stop more images being loaded to the model.
+     * The Result is parsed & then drawn on the HTML.
+     * @param {*} img retrived from webcam.
+     */
     predict(img){
         this.tfModel.getModel()
             .predict(img.div(tf.scalar(255)).reshape([1,150,150,3]))

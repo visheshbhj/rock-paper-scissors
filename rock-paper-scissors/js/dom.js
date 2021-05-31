@@ -1,5 +1,11 @@
+/**
+ * This class contains DOM of all possible windows.
+ */
 class DOM {
-
+    /**
+     * DOM constructor
+     * @param {*} localeModel is used to get language bindings
+     */
     constructor(localeModel){
         this.localeModel = localeModel;
     }

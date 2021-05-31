@@ -7,14 +7,20 @@ class ResultView{
         this.confetti = confetti
         this.webcam = webcam
     }
-
+    /**
+     * Stops the Game & resets the Scores to 0, then takes back user to welcome screen.
+     */
     stopGame(){
         $('#window').empty();
         this.confetti.stopConfetti()
         this.gameModel.resetScores();
         $('#window').append(this.dom.getWelcomeWindow());
     }
-
+    /**
+     * Continue game.
+     * Check if game is normal or webcam based using 'game-event-type' key present in session & load corresponding Screen.
+     * Finally display the scores.
+     */
     continueGame(){
         $('#window').empty();
         if(this.session.get('game-event-type') === 'normal'){
@@ -30,6 +36,11 @@ class ResultView{
         $('#computer_score').append(`<label>`+this.localeModel.getCurrentLanguage('computer')+`</label><label>`+this.gameModel.getComputerScore()+`</label>`);
     }
 
+    /**
+     * Display the choices of human & computer on result window. Also displays the scores of players.
+     * @param {*} human_choice 
+     * @param {*} computer_choice 
+     */
     setupPlayerChoicesAndScore(human_choice,computer_choice) {
         $('#window').empty();
         $('#window').append(this.dom.getResultWindow());
@@ -57,7 +68,10 @@ class ResultView{
                             </div>
                             `);
     }
-
+    /**
+     * Draw Confetti on Winner also sets winner's & looser's border color
+     * @param {*} winner 
+     */
     winnerConfetti(winner){
         if(winner === 'draw'){
             //TODO
@@ -69,7 +83,10 @@ class ResultView{
             this.setAvatarBorder(winner);
         }
     }
-
+    /**
+     * Draw winner's & looser's border color as green & red.
+     * @param {*} winner 
+     */
     setAvatarBorder(winner){
         if(winner==='draw'){
 
