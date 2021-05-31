@@ -9,8 +9,4 @@ class TensorflowModel{
     getModel(){
         return this.pretrained;
     }
-
-    predict(img){
-        return this.pretrained.predict(img.div(tf.scalar(255)).reshape([1,150,150,3])).argMax(1).data();
-    }
 }
