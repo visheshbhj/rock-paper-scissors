@@ -11,10 +11,10 @@ var tfModel = new TensorflowModel()
 
 var localeView = new LocaleView(localeModel);
 var choiceView = new ChoiceView(dom,session)
-var webcamView = new WebcamView(dom,session,localeModel,tfModel,webcam)
-var resultView = new ResultView(dom,session,gameModel,localeModel,confetti,webcam);
+var webcamView = new WebcamView(dom,session,localeModel,tfModel,webcam,gameModel)
+var resultView = new ResultView(dom,session,gameModel,localeModel,confetti,webcam,new Flair());
 
-var welcomeController = new WelcomeController(localeView,localeModel,choiceView,webcamView);
+var welcomeController = new WelcomeController(localeView,localeModel,choiceView,webcamView,gameModel);
 var choiceController = new ChoiceController(resultView,gameModel);
 var resultController = new ResultController(resultView);
 var webcamController = new WebcamController(gameModel,webcamView,resultView);
@@ -23,8 +23,5 @@ var webcamController = new WebcamController(gameModel,webcamView,resultView);
 $(document).ready(()=>{
     tfModel.init().then(()=>{
         $('#window').append(dom.getWelcomeWindow())
-        canvas = document.getElementById("background");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
     }) 
 });

@@ -1,20 +1,42 @@
 class ResultView{
-    constructor(dom,session,gameModel,localeModel,confetti,webcam){
+    constructor(dom,session,gameModel,localeModel,confetti,webcam,flair){
         this.dom = dom
         this.session = session
         this.gameModel = gameModel
         this.localeModel = localeModel
         this.confetti = confetti
         this.webcam = webcam
+        this.flair = flair
     }
     /**
      * Stops the Game & resets the Scores to 0, then takes back user to welcome screen.
+     * If game is draw do nothing.
+     * If game has an over all winner then display
      */
     stopGame(){
         $('#window').empty();
         this.confetti.stopConfetti()
-        this.gameModel.resetScores();
         $('#window').append(this.dom.getWelcomeWindow());
+
+        if(this.gameModel.getHumanScore() == 0 && this.gameModel.getComputerScore() == 0){
+            // DO NOTHING Scores are zero
+        }else{
+            var finalWinner = this.gameModel.getOverAllWinner()
+            $('#modal').empty()
+            $('#modal').append(`
+                <div id='modal_content'>
+                <span id='modal_text'>`+this.localeModel.getCurrentLanguage('game_result_'+finalWinner)+`</span>
+                <span id='modal_close'>&times;</span>
+                </div>
+            `)
+            document.getElementById('modal').style.display = 'block';
+            this.gameModel.resetScores();
+            if(finalWinner === 'Draw'){
+                // Do Nothing
+            }else{
+                this.flair.setBoard().initFlair().render();
+            }
+        }
     }
     /**
      * Continue game.
@@ -73,8 +95,8 @@ class ResultView{
      * @param {*} winner 
      */
     winnerConfetti(winner){
-        if(winner === 'draw'){
-            //TODO
+        if(winner === 'Draw'){
+            //Nothing to do here
         }else{
             var canvas = document.getElementById(winner+'_result_canvas')
             canvas.width = document.getElementsByClassName('avatar')[0].offsetWidth
@@ -88,8 +110,8 @@ class ResultView{
      * @param {*} winner 
      */
     setAvatarBorder(winner){
-        if(winner==='draw'){
-
+        if(winner==='Draw'){
+            //Nothing to do here
         }else{
             if(winner==='human'){
                 document.getElementsByClassName('avatar')[0].style.border = '3px solid green'
@@ -99,5 +121,9 @@ class ResultView{
                 document.getElementsByClassName('avatar')[0].style.border = '3px solid red'
             }
         }
+    }
+
+    writeRoundResult(result){
+        document.getElementById('result_text').innerHTML = this.localeModel.getCurrentLanguage('round_result_'+result)
     }
 }

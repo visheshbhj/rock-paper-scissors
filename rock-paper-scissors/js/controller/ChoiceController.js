@@ -34,6 +34,7 @@ class ChoiceController{
                 var winner = this.gameModel.getWinner(human_choice)
                 this.resultView.setupPlayerChoicesAndScore(human_choice,winner.computer_choice)
                 this.resultView.winnerConfetti(winner.result)
+                this.resultView.writeRoundResult(winner.result)
             }
         } catch (error) {
             

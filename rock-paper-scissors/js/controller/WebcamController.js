@@ -22,6 +22,10 @@ class WebcamController{
                 var winner = this.gameModel.getWinner(this.webcamView.result)
                 this.resultView.setupPlayerChoicesAndScore(this.webcamView.result,winner.computer_choice)
                 this.resultView.winnerConfetti(winner.result)
+                this.resultView.writeRoundResult(winner.result)
+            }
+            if(event.target.id === 'webcam_help'){
+                this.webcamView.webcamHelpWindow();
             }
         });
     }

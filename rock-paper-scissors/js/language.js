@@ -2,7 +2,7 @@ language = {
     'en': {
         'start': 'Start Game',
         'start_webcam': 'Start Game & Use Webcam',
-        'language': 'Byt språk till svenska',
+        'language': 'Till Svenska',
         'rock': 'Rock',
         'paper': 'Paper',
         'scissors': 'Scissors',
@@ -11,18 +11,24 @@ language = {
         'stop_game':'Stop game',
         'continue_game':'Continue Game',
         'choice_footer_label':'Choose An Option To Play Against The Computer',
-        'cam_footer_label':'Press Predict & Motion',
+        'cam_footer_label':'Press Predict & Gesture Rock, Paper or Scissors towards the camera',
         'human':'Human',
         'computer':'Computer',
         'score_text':'Score',
         'predicted':'Predicted',
-        'prediction_continue':'Continue with Prediction'
-
+        'prediction_continue':'Continue with Prediction',
+        'round_result_Draw':'Draw',
+        'round_result_human':'Human wins the round.',
+        'round_result_computer':'Computer wins the round.',
+        'game_result_Draw':'Game is a draw.',
+        'game_result_human':'Human wins the game.',
+        'game_result_computer':'Computer wins the game.',
+        'cam_help':'Recommended gestures for webcam'
     },
     'sv': {
         'start': 'Starta spelet',
         'start_webcam': 'Starta spel och använd webbkamera',
-        'language': 'Change Language to English',
+        'language': 'To English',
         'rock': 'Sten',
         'paper': 'Papper',
         'scissors': 'Sax',
@@ -31,12 +37,18 @@ language = {
         'stop_game':'Stoppa spelet',
         'continue_game':'Fortsätt spelet',
         'choice_footer_label':'Välj ett alternativ att spela mot datorn',
-        'cam_footer_label':'',
+        'cam_footer_label':'Tryck på Predict & Gesture Rock, Paper eller Sax mot kameran',
         'human':'Mänsklig',
         'computer':'Dator',
         'score_text':'Göra',
         'predicted':'Förutspådd',
-        'prediction_continue':'Fortsätt med Prediction'
-
+        'prediction_continue':'Fortsätt med Prediction',
+        'round_result_Draw':'Dra',
+        'round_result_human':'Human vinner omgången.',
+        'round_result_computer':'Dator vinner omgången.',
+        'game_result_Draw':'Spelet är oavgjort.',
+        'game_result_human':'Human vinner spelet.',
+        'game_result_computer':'Dator vinner spelet.',
+        'cam_help':'Rekommenderade gester för webbkamera'
     }
 }

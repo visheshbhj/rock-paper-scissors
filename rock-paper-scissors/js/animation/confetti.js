@@ -1,10 +1,20 @@
+/**
+ * Confetti Animation
+ */
 class Confetti{
+    /**
+     * points -> points array
+     * numpoints -> number of points
+     * gravity -> rate at which confetti falls
+     */
     constructor(){
         this.points = []
         this.numpoints = 100
         this.gravity = 0.1;
     }
-
+    /**
+     * Setup the canvas
+     */
     setBoard(canvas){
         this.canvas = canvas
         this.context = canvas.getContext('2d');
@@ -13,10 +23,18 @@ class Confetti{
         return this;
     }
     
+    /**
+     * Get random number in range
+     */
     getRandom(min, max) {
         return Math.random() * (max - min) + min;
     }
 
+    /**
+     * Setup a single point.
+     * x & y specifies position
+     * vx, vy specify velocity.
+     */
     initPoint(p) {
         p.x = this.getRandom(0,this.canvas.width);
         p.y = 0;
@@ -25,6 +43,10 @@ class Confetti{
         p.radius = 2.4;//Device width issue here
     }
     
+    /**
+     * Gives the Point velocity, but the point is not painted.
+     * If number of points exceds 100 or the board, then reset the point.
+     */
     update() {
         var i, point, len = this.points.length;
         for(i = 0; i < len; i += 1) {
@@ -41,6 +63,10 @@ class Confetti{
         }
     }
     
+    /**
+     * Draw the confetti fall.
+     * Clear the canvas & then plot the points.
+     */
     draw() {
         var i, point, len = this.points.length;
         this.context.clearRect(0, 0, this.width, this.height);
@@ -50,10 +76,12 @@ class Confetti{
             this.context.arc(point.x, point.y, point.radius, 0, Math.PI * 2, false);
             this.context.fillStyle = "#49463d";
             this.context.fill();
-            
         }
     }
     
+    /**
+     * if points array is not full initialize point object & add it to points array.
+     */
     addPoint() {
         var point;
         if(this.points.length < this.numpoints) {
@@ -63,6 +91,10 @@ class Confetti{
         }
     }
     
+    /**
+     * Start The confetti fall.
+     * Every point is drawn at 24th of a second.
+     */
     startConfetti(){
         this.confettiProcess = setInterval(() => {
             this.addPoint();
@@ -71,6 +103,9 @@ class Confetti{
         }, 1000/24);
     }
 
+    /**
+     * Stop the confetti.
+     */
     stopConfetti(){
         try {
             clearInterval(this.confettiProcess)    

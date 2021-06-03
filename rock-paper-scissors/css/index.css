@@ -35,7 +35,7 @@ body{
     100% { transform: rotate(360deg); }
 }
 
-/* button{
-    color: var(--darkest);
-    background-color: (var(--light));
-} */
+#modal_close{
+    color: red;
+    cursor: pointer;
+}

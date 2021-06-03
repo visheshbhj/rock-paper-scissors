@@ -21,7 +21,7 @@ class GameModel{
         this.computer_choice = this.choice_criteria(Math.random());
 
         if(human_choice === this.computer_choice){// Computer & Human played same choice -> Draw
-            return {'result':'draw','computer_choice':this.computer_choice}
+            this.result = {'result':'Draw','computer_choice':this.computer_choice}
         }else{
             if( (human_choice==='rock') && (this.computer_choice==='paper')){
                 this.computer_score++;
@@ -47,8 +47,8 @@ class GameModel{
                 this.human_score++
                 this.result = {'result':'human','computer_choice':this.computer_choice}
             }
-            return this.result
         }
+        return this.result
     }
 
     /**
@@ -65,6 +65,22 @@ class GameModel{
         }
         if(value >= .66 && value < 1){
             return 'scissors';
+        }
+    }
+
+    /**
+     * Gets Overall Game Winner
+     */
+
+    getOverAllWinner(){
+        if(this.human_score == this.computer_score){
+            return 'Draw';
+        }else{
+            if(this.human_score > this.computer_score){
+                return 'human';
+            }else{
+                return 'computer'
+            }
         }
     }
 

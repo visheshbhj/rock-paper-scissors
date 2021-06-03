@@ -25,9 +25,10 @@
         justify-content: space-evenly;
     }
 
-    footer > button,#stop_game,#prediction > button{
+    footer > button,#stop_game,#prediction > button,#continue_game,#webcam_help{
         height: 3.2vh;
         width: 40vh;
+        margin: 1.2%;
     }
 
     .avatar{
@@ -54,7 +55,7 @@
     }
 
     /* start_window */
-    .choice_card{
+    .choice_card,.help_card{
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -63,14 +64,17 @@
         width: 80vw;
         border-style: solid;
         color: var(--dark);
+    }
+
+    .choice_cursor{
         cursor: pointer;
     }
 
-    .choice_card > img {
+    .choice_card > img,.help_card > img {
         height: 8vh;
     }
 
-    .choice_card > label{
+    .choice_card > label,.help_card > label{
         font-size: 4vh;
     }
 
@@ -83,7 +87,7 @@
     }
 
     #choice_footer > label {
-        font-size: 2.4vh;
+        font-size: 1.6vh;
     }
 
     #scoreboard{
@@ -102,6 +106,15 @@
         justify-content: center;
         align-items: center;
     }
+
+    #webcam_footer_buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    /*Help Window */
 
     /* WebCam */
     #cam_frame{
@@ -133,5 +146,54 @@
         height: 8vh;
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
+    }
+
+    /* Result Section */
+    #result_footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 15vh;
+    }
+
+    #result_text{
+        font-size: 4vh;
+    }
+
+    #result_button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 16vw;
+        justify-content: space-evenly;
+    }
+
+    /* Modal */
+    #modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 20vh;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    #modal_content{
+        background-color: #fefefe;
+        margin: auto;
+        padding: 4vh;
+        border: 1px solid #888;
+        width: 80%;
+        height: 4vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
     }
 }

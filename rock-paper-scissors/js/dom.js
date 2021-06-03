@@ -40,10 +40,29 @@ class DOM {
                         <div id='score_text'>`+this.localeModel.getCurrentLanguage('score_text')+`</div>
                         <div class='scores' id='computer_score'></div>
                     </section>
-                    <button id='stop_game'>`+this.localeModel.getCurrentLanguage('stop_game')+`</button>
+                    <section id='webcam_footer_buttons'>
+                        <button id='webcam_help'>`+this.localeModel.getCurrentLanguage('cam_help')+`</button>
+                        <button id='stop_game'>`+this.localeModel.getCurrentLanguage('stop_game')+`</button>
+                    </section>
                 </section>
             </footer>
         </article>
+        `;
+    }
+
+    getWebcamHelpWindow(){
+        return`
+            <header>
+                <div class='help_card'><img src='img/rock.png'><label id='label_rock'>`+this.localeModel.getCurrentLanguage('rock')+`</label></div>
+                <div class='help_card'><img src='img/paper.png'><label id='label_rock'>`+this.localeModel.getCurrentLanguage('paper')+`</label></div>
+                <div class='help_card'><img src='img/scissors.png'><label id='label_rock'>`+this.localeModel.getCurrentLanguage('scissors')+`</label></div>
+            </header>
+            <footer>
+                <section id='choice_footer'>
+                    <label> `+this.localeModel.getCurrentLanguage('cam_help')+`</label>
+                    <button id='start_webcam'>`+this.localeModel.getCurrentLanguage('start_webcam')+`</button>
+                </section>
+            </footer>
         `;
     }
 
@@ -51,9 +70,9 @@ class DOM {
         return `
         <article id='start_window'>
             <header>
-                <div class='choice_card' id='choice_rock'><img src='img/rock.svg'><label id='label_rock'>`+this.localeModel.getCurrentLanguage('rock')+`</label></div>
-                <div class='choice_card' id='choice_paper'><img src='img/paper.svg'><label id='label_rock'>`+this.localeModel.getCurrentLanguage('paper')+`</label></div>
-                <div class='choice_card' id='choice_scissors'><img src='img/scissors.svg'><label id='label_rock'>`+this.localeModel.getCurrentLanguage('scissors')+`</label></div>
+                <div class='choice_card choice_cursor' id='choice_rock'><img src='img/rock.svg'><label class='choice_cursor' id='label_rock'>`+this.localeModel.getCurrentLanguage('rock')+`</label></div>
+                <div class='choice_card choice_cursor' id='choice_paper'><img src='img/paper.svg'><label class='choice_cursor' id='label_rock'>`+this.localeModel.getCurrentLanguage('paper')+`</label></div>
+                <div class='choice_card choice_cursor' id='choice_scissors'><img src='img/scissors.svg'><label class='choice_cursor' id='label_rock'>`+this.localeModel.getCurrentLanguage('scissors')+`</label></div>
             </header>
             <footer>
                 <section id='choice_footer'>
@@ -76,8 +95,13 @@ class DOM {
             <header>
             </header>
             <footer>
-                <button id='continue_game'>`+this.localeModel.getCurrentLanguage('continue_game')+`</button>
-                <button id='stop_game'>`+this.localeModel.getCurrentLanguage('stop_game')+`</button>
+                <section id='result_footer'>
+                    <div id='result_text'></div>
+                    <div id='result_button'>
+                        <button id='continue_game'>`+this.localeModel.getCurrentLanguage('continue_game')+`</button>
+                        <button id='stop_game'>`+this.localeModel.getCurrentLanguage('stop_game')+`</button>
+                    </div>
+                </section>
             </footer>
         </article>
         `;
