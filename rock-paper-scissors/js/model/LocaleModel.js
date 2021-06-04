@@ -1,3 +1,6 @@
+/**
+ * Locale Model gets the language.
+ */
 class LocaleModel {
     /**
      * When initialized it sets up default language.

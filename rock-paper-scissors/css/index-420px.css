@@ -114,8 +114,6 @@
         justify-content: space-evenly;
     }
 
-    /*Help Window */
-
     /* WebCam */
     #cam_frame{
         display: flex;

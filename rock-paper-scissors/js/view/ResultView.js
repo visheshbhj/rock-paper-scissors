@@ -122,7 +122,10 @@ class ResultView{
             }
         }
     }
-
+    /**
+     * So the human & computer have played, We want to know who won the round & not the present game.
+     * @param {*} result can be Draw || human || computer
+     */
     writeRoundResult(result){
         document.getElementById('result_text').innerHTML = this.localeModel.getCurrentLanguage('round_result_'+result)
     }
